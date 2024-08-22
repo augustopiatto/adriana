@@ -3,6 +3,8 @@
 // de 50%. Escreva um algoritmo que leia o número de horas trabalhadas em um mês, o salário por
 // hora e escreva o salário total do funcionário, que deverá ser acrescido das horas extras,
 // caso tenham sido trabalhadas (considere que o mês possua 4 semanas exatas).
+import java.util.Scanner;
+
 public class SalarioFuncionario {
     private int horasTrabalhadas;
     private double salarioPorHora;
@@ -17,11 +19,16 @@ public class SalarioFuncionario {
             this.salarioTotal = this.salarioTotal + ((this.horasTrabalhadas - 160) * this.salarioPorHora * 1.5);
         }
         return this.salarioTotal;
-    } 
+    }
 
      public static void main(String []args) {
+        Scanner scanner = new Scanner(System.in);
         SalarioFuncionario salarioFuncionario = new SalarioFuncionario();
-        double salario = salarioFuncionario.calculaSalario(170, 10);
-        System.out.println(salario);
+        System.out.print("Digite as horas trabalhadas: ");
+        int horas = scanner.nextInt();
+        System.out.print("Digite o salário por hora: ");
+        double salario = scanner.nextDouble();
+        double salarioTotal = salarioFuncionario.calculaSalario(horas, salario);
+        System.out.println(salarioTotal);
      }
 }
