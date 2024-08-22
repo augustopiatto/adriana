@@ -14,6 +14,6 @@ public class MaiorDeIdade {
      public static void main(String []args) {
         MaiorDeIdade maiorDeIdade = new MaiorDeIdade();
         int idade = maiorDeIdade.calculaIdade(2024, 2006);
-        System.out.println(idade >= 18 ? "Você pode votar" : "Você NÃO pode votar");
+        System.out.println(idade >= 16 ? "Você pode votar" : "Você NÃO pode votar");
      }
 }
