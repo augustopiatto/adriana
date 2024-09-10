@@ -325,49 +325,5 @@ public class TestaClasse {
             System.out.println();
         }
         scanner.close();
-
-//        Celular celular = new Celular("android", "Samsung");
-//        celular.derrubar();
-//        System.out.println("O celular está quebrado? " + celular.quebrado);
-//
-//        Porta porta = new Porta(3, "verde");
-//        porta.pintar("laranja");
-//        porta.abrir();
-//        porta.fechar();
-//
-//        Teclado teclado = new Teclado(42, true, "mecânico");
-//        String textoDigitado = teclado.digitar("funcionou?");
-//        System.out.println("O novo texto é " + textoDigitado);
-//        Teclado segundoTeclado = new Teclado(38, false, "membrana");
-//        teclado.comparar(segundoTeclado);
-//
-//        Livro livro = new Livro("O nome do vento", "dura", "fantasia");
-//        String lido = livro.ler();
-//        System.out.println("Livro foi " + lido);
-//        String capa = livro.modificar("mole");
-//        System.out.println("A nova capa é " + capa);
-//
-//        Lampada lampada = new Lampada(110, "RGB", "intenso");
-//        lampada.usar(220);
-//        lampada.quebrar();
-//
-//        Instrumento instrumento = new Instrumento("Oboé", "sopro", "médio");
-//        String som = instrumento.tocar();
-//        System.out.println("O som é " + som);
-//        boolean reparado = instrumento.reparar();
-//        System.out.println("Foi reparado? " + reparado);
-//
-//        Flor flor = new Flor("vermelha", "primavera");
-//        flor.cheirar("inverno");
-//        flor.colher();
-//
-//        Comida comida = new Comida("Risoto", "salgado", "empapado");
-//        comida.aquecer();
-//        comida.comer(comida);
-//
-//        Carro carro = new Carro("preto", "Volkswagen", 80000);
-//        carro.dirigir();
-//        boolean vendido = carro.vender();
-//        System.out.println("Foi vendido? " + vendido);
     }
 }
