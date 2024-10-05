@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="550.0" prefWidth="450.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.javafx.MenuController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+
+    <Label fx:id="welcomeText" />
+    <Text text="Bem vindo ao projeto Teste Classe" />
+    <Button onAction="#onCalcadoButtonClick" text="Calçado" />
+    <Button onAction="#onCarroButtonClick" text="Carro" />
+    <Button onAction="#onCelularButtonClick" text="Celular" />
+    <Button onAction="#onComidaButtonClick" text="Comida" />
+    <Button onAction="#onFlorButtonClick" text="Flor" />
+    <Button onAction="#onInstrumentoButtonClick" text="Instrumento" />
+    <Button onAction="#onLampadaButtonClick" text="Lâmpada" />
+    <Button onAction="#onLivroButtonClick" text="Livro" />
+    <Button onAction="#onPortaButtonClick" text="Porta" />
+    <Button onAction="#onTecladoButtonClick" text="Teclado" />
+</VBox>
