@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.CalcadoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.CalcadoController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CALÇADO">
          <font>
@@ -33,14 +34,15 @@
                <children>
                   <VBox alignment="CENTER" maxHeight="500.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="350.0" spacing="16.0">
                      <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o calçado" />
+                        <ChoiceBox fx:id="calcadoChoiceBox" prefWidth="320.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o tamanho do calçado" />
                         <TextField fx:id="tamanho" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a marca do calçado" />
                         <TextField fx:id="marca" />
-                        <Button mnemonicParsing="false" onAction="#onUseShoesButtonClick" text="Usar" />
-                        <Button mnemonicParsing="false" onAction="#onCleanShoesButtonClick" text="Limpar" />
-                        <Button mnemonicParsing="false" onAction="#onPlayShoesButtonClick" text="Jogue o calçado nos fios do poste" />
-                        <TextField fx:id="resultado" />
+                        <Button mnemonicParsing="false" onAction="#create" text="Criar" />
+                        <Button mnemonicParsing="false" onAction="#update" text="Editar" />
+                        <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />
                         <Button mnemonicParsing="false" onAction="#onMenuButtonClick" text="Menu" />
                      </children>
                      <padding>

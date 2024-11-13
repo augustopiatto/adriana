@@ -5,7 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/models/CalcadoModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/adriana.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/CalcadoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/helpers/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/helpers/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CalcadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CalcadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/calcado.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/calcado.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/CalcadoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/CarroController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/CelularController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/ComidaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/FlorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/InstrumentoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/LampadaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/LivroController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/PortaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/TecladoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/calcado.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/carro.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/celular.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/comida.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/flor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/instrumento.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/lampada.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/livro.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/porta.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/javafx/teclado.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Calcado.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Carro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Celular.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Comida.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Flor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Fracao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Instrumento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Lampada.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Livro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Porta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Teclado.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +90,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/augusto/FATEC/2024 - 2º Semestre/adriana"
+    "last_opened_file_path": "/home/augusto/FATEC/2024 - 2º Semestre/adriana/Tarefa 4"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="app.controllers.Main" />
+      <module name="JavaFX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
