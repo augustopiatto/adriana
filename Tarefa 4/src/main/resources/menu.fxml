@@ -23,4 +23,5 @@
     <Button onAction="#onLivroButtonClick" text="Livro" />
     <Button onAction="#onPortaButtonClick" text="Porta" />
     <Button onAction="#onTecladoButtonClick" text="Teclado" />
+    <Button mnemonicParsing="false" onAction="#fillDatabase" text="Preencher banco" />
 </VBox>

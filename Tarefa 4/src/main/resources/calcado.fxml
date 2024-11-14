@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.CalcadoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.CalcadoController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CALÇADO">
          <font>
@@ -25,7 +25,7 @@
                <children>
                   <ImageView fitHeight="500.0" fitWidth="350.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" translateY="160.0">
                      <image>
-                        <Image url="@../assets/java-calcados.jpg" />
+                        <Image url="@assets/images/java-calcados.jpg" />
                      </image>
                   </ImageView>
                </children>

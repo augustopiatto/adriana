@@ -38,6 +38,6 @@ public class CelularController {
 
     @FXML
     protected void onMenuButtonClick() throws IOException {
-        Main.setRoot("menu");
+        Main.setRoot("/menu");
     }
 }

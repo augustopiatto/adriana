@@ -65,6 +65,6 @@ public class ComidaController {
 
     @FXML
     protected void onMenuButtonClick() throws IOException {
-        Main.setRoot("menu");
+        Main.setRoot("/menu");
     }
 }

@@ -24,7 +24,7 @@
                <children>
                   <ImageView fitHeight="500.0" fitWidth="350.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/java-lampadas.jpg" />
+                        <Image url="@assets/images/java-lampadas.jpg" />
                      </image>
                   </ImageView>
                </children>

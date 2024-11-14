@@ -52,6 +52,6 @@ public class PortaController {
 
     @FXML
     protected void onMenuButtonClick() throws IOException {
-        Main.setRoot("menu");
+        Main.setRoot("/menu");
     }
 }

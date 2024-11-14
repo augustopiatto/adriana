@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("menu"), 800, 600);
+        scene = new Scene(loadFXML("/menu"), 800, 600);
         stage.setTitle("Projeto Testa Classes");
         stage.setScene(scene);
         stage.show();

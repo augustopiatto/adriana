@@ -24,7 +24,7 @@
                <children>
                   <ImageView fitHeight="500.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" translateY="150.0">
                      <image>
-                        <Image url="@../assets/java-celulares.jpeg" />
+                        <Image url="@assets/images/java-celulares.jpeg" />
                      </image>
                   </ImageView>
                </children>

@@ -31,7 +31,7 @@ public class CalcadoController {
     }
 
     @FXML
-    void create(ActionEvent event) {
+    private void create(ActionEvent event) {
         convertParam();
         if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
             CalcadoDAO calcadoDAO = new CalcadoDAO();
@@ -45,7 +45,7 @@ public class CalcadoController {
         }
     }
 
-    void read() {
+    private void read() {
         List<String> calcadoMarcaList = List.of();
 
         CalcadoDAO calcadoDAO = new CalcadoDAO();
@@ -59,7 +59,7 @@ public class CalcadoController {
     }
 
     @FXML
-    void update(ActionEvent event) {
+    private void update(ActionEvent event) {
         convertParam();
         if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
 //
@@ -69,7 +69,7 @@ public class CalcadoController {
     }
 
     @FXML
-    void delete(ActionEvent event) {
+    private void delete(ActionEvent event) {
         convertParam();
         if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
 //
@@ -79,8 +79,7 @@ public class CalcadoController {
     }
 
     @FXML
-    void onMenuButtonClick(ActionEvent event) throws IOException {
-        Main.setRoot("menu");
+    private void onMenuButtonClick(ActionEvent event) throws IOException {
+        Main.setRoot("/menu");
     }
-
 }
