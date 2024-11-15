@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class CalcadoController implements Initializable {
@@ -33,24 +32,33 @@ public class CalcadoController implements Initializable {
     }
 
     private void convertParam() {
-        if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
-            this.tamanhoBr = Integer.parseInt(tamanho.getText());
-        }
         this.marcaBr = marca.getText();
+        if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
+            try {
+                this.tamanhoBr = Integer.parseInt(tamanho.getText());
+            } catch (NumberFormatException e) {
+                Utils.setAlert("ERROR", "Validação", "O campo de tamanho não é um número");
+            }
+        }
+        else if (tamanhoBr <= 0 || marcaBr.isEmpty()) {
+            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+        }
+    }
+
+    private void clearInputs() {
+        marca.clear();
+        tamanho.clear();
     }
 
     @FXML
     private void create(ActionEvent event) {
         convertParam();
-        if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
-            CalcadoDAO calcadoDAO = new CalcadoDAO();
-            int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
+        CalcadoDAO calcadoDAO = new CalcadoDAO();
+        int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
 
-            if (calcadoId != 0) {
-                read();
-            }
-        } else {
-            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+        if (calcadoId != 0) {
+            clearInputs();
+            read();
         }
     }
 
@@ -70,17 +78,13 @@ public class CalcadoController implements Initializable {
 
     @FXML
     private void update(ActionEvent event) {
-        convertParam();
-        if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
-            String calcadoAtual = (String) calcadoChoiceBox.getValue();
-            String marcaAtual = calcadoAtual.split(" - ")[0];
-            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-            CalcadoDAO calcadoDAO = new CalcadoDAO();
-            calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
-            read();
-        } else {
-            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
-        }
+        String calcadoAtual = (String) calcadoChoiceBox.getValue();
+        String marcaAtual = calcadoAtual.split(" - ")[0];
+        int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
+        CalcadoDAO calcadoDAO = new CalcadoDAO();
+        calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
+        clearInputs();
+        read();
     }
 
     @FXML

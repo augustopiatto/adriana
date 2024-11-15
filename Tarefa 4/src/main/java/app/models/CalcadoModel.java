@@ -1,24 +1,21 @@
 package app.models;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 public class CalcadoModel {
-    private SimpleIntegerProperty tamanho;
-    private SimpleStringProperty marca;
+    private int tamanho;
+    private String marca;
 
-    public CalcadoModel(int id, String marca){
-        this.tamanho = new SimpleIntegerProperty(id);
-        this.marca = new SimpleStringProperty(marca);
+    public CalcadoModel(int tamanho, String marca){
+        this.tamanho = tamanho;
+        this.marca = marca;
     }
 
-    public int getTamanho() {   return tamanho.get(); }
-    public void setTamanho(int tamanho) {  this.tamanho = new SimpleIntegerProperty(tamanho); }
+    public int getTamanho() { return tamanho; }
+    public void setTamanho(int tamanho) { this.tamanho = tamanho; }
 
     public String getMarca() {
-        return marca.get();
+        return marca;
     }
     public void setMarca(String marca) {
-        this.marca = new SimpleStringProperty(marca);
+        this.marca = marca;
     }
 }
