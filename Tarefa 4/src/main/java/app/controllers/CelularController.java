@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.models.CelularModel;
 import entities.Celular;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -28,7 +29,7 @@ public class CelularController {
     protected void onSurpriseButtonClick() throws IOException {
         convertParam();
         if (!marcaBr.isEmpty() && !marcaBr.isEmpty()) {
-            Celular celular = new Celular(sistemaBr,  marcaBr);
+            CelularModel celular = new CelularModel(sistemaBr,  marcaBr);
             String resposta = celular.derrubar();
             resultado.setText(resposta);
         } else {

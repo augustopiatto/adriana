@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(carro): cria o update e delete">
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/Celular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/CelularModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/Comida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/ComidaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/Flor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/FlorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/Fracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/Fracao.java" afterDir="false" />
+    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(models): reorganiza os models">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/CelularDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/ComidaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/FlorDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/LampadaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/PortaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/TecladoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,13 +107,22 @@
       <option name="project" value="LOCAL" />
       <updated>1731643097313</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(models): reorganiza os models">
+      <option name="closed" value="true" />
+      <created>1731643929027</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731643929027</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(carro): cria o create e read" />
     <MESSAGE value="feat(carro): cria o" />
     <MESSAGE value="feat(carro): cria o update e delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(carro): cria o update e delete" />
+    <MESSAGE value="feat(models): reorganiza os models" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(models): reorganiza os models" />
   </component>
 </project>
