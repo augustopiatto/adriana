@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/CarroDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/models/CarroModel.java" afterDir="false" />
+    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(carro): cria o create e read">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/CarroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/CarroDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CalcadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CalcadoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CarroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CarroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/CalcadoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/CalcadoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/Carro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/carro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/carro.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +79,19 @@
       <option name="presentableId" value="Default" />
       <updated>1731453414801</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat(carro): cria o create e read">
+      <option name="closed" value="true" />
+      <created>1731642080117</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731642080118</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(carro): cria o create e read" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(carro): cria o create e read" />
   </component>
 </project>

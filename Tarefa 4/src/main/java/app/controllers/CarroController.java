@@ -36,7 +36,7 @@ public class CarroController implements Initializable {
         read();
     }
 
-    private void convertParam() {
+    private boolean convertParam() {
         this.corBr = cor.getText();
         this.marcaBr = marca.getText();
         if (preco.getText() != null && !preco.getText().trim().isEmpty()) {
@@ -44,11 +44,15 @@ public class CarroController implements Initializable {
                 this.precoBr = Integer.parseInt(preco.getText());
             } catch (NumberFormatException e) {
                 Utils.setAlert("ERROR", "Validação", "O campo de preço não é um número");
+                return false;
             }
+
         }
         else if (precoBr <= 0 || corBr.isEmpty() || marcaBr.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+            return false;
         }
+        return true;
     }
 
     private void clearInputs() {
@@ -59,7 +63,8 @@ public class CarroController implements Initializable {
 
     @FXML
     private void create(ActionEvent event) {
-        convertParam();
+        boolean converted = convertParam();
+        if (!converted) return;
         CarroDAO carroDAO = new CarroDAO();
         int carroId = carroDAO.createCarro(corBr, marcaBr, precoBr);
 
@@ -77,7 +82,7 @@ public class CarroController implements Initializable {
         ObservableList<CarroModel> carroList = carroDAO.readCarro();
 
         for (CarroModel carro : carroList) {
-            carroMarcaList.add(carro.getMarca() + " " + carro.getCor());
+            carroMarcaList.add(carro.getMarca() + " - " + carro.getCor());
         }
 
         carroChoiceBox.getItems().addAll(carroMarcaList);
@@ -85,27 +90,29 @@ public class CarroController implements Initializable {
 
     @FXML
     private void update(ActionEvent event) {
-//        String calcadoAtual = (String) carroChoiceBox.getValue();
-//        String marcaAtual = calcadoAtual.split(" - ")[0];
-//        int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-//        CalcadoDAO calcadoDAO = new CalcadoDAO();
-//        calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, precoBr, marcaBr);
-//        clearInputs();
-//        read();
+        boolean converted = convertParam();
+        if (!converted) return;
+        String carroAtual = (String) carroChoiceBox.getValue();
+        String marcaAtual = carroAtual.split(" - ")[0];
+        String corAtual = carroAtual.split(" - ")[1];
+        CarroDAO carroDAO = new CarroDAO();
+        carroDAO.updateCarro(corAtual, marcaAtual, corBr, marcaBr, precoBr);
+        clearInputs();
+        read();
     }
 
     @FXML
     private void delete(ActionEvent event) {
-//        String calcadoAtual = (String) carroChoiceBox.getValue();
-//        if (calcadoAtual.isEmpty()) {
-//            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
-//        } else {
-//            String marcaAtual = calcadoAtual.split(" - ")[0];
-//            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-//            CalcadoDAO calcadoDAO = new CalcadoDAO();
-//            calcadoDAO.deleteCalcado(tamanhoAtual, marcaAtual);
-//            read();
-//        }
+        String carroAtual = (String) carroChoiceBox.getValue();
+        if (carroAtual.isEmpty()) {
+            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+        } else {
+            String marcaAtual = carroAtual.split(" - ")[0];
+            String corAtual = carroAtual.split(" - ")[1];
+            CarroDAO carroDAO = new CarroDAO();
+            carroDAO.deleteCarro(corAtual, marcaAtual);
+            read();
+        }
     }
 
     @FXML

@@ -31,18 +31,21 @@ public class CalcadoController implements Initializable {
         read();
     }
 
-    private void convertParam() {
+    private boolean convertParam() {
         this.marcaBr = marca.getText();
         if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
             try {
                 this.tamanhoBr = Integer.parseInt(tamanho.getText());
             } catch (NumberFormatException e) {
                 Utils.setAlert("ERROR", "Validação", "O campo de tamanho não é um número");
+                return false;
             }
         }
         else if (tamanhoBr <= 0 || marcaBr.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+            return false;
         }
+        return true;
     }
 
     private void clearInputs() {
@@ -52,7 +55,8 @@ public class CalcadoController implements Initializable {
 
     @FXML
     private void create(ActionEvent event) {
-        convertParam();
+        boolean converted = convertParam();
+        if (!converted) return;
         CalcadoDAO calcadoDAO = new CalcadoDAO();
         int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
 
@@ -78,6 +82,8 @@ public class CalcadoController implements Initializable {
 
     @FXML
     private void update(ActionEvent event) {
+        boolean converted = convertParam();
+        if (!converted) return;
         String calcadoAtual = (String) calcadoChoiceBox.getValue();
         String marcaAtual = calcadoAtual.split(" - ")[0];
         int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);

@@ -43,27 +43,27 @@ public class CarroDAO {
         return carroList;
     }
 
-    public int updateCalcado(int tamanhoAtual, String marcaAtual, int tamanhoNovo, String marcaNova) {
+    public int updateCarro(String corAtual, String marcaAtual, String corNova, String marcaNova, float precoNovo) {
         int generatedKey = 0;
-        String sql = "UPDATE calcado SET tamanho = ?, marca = ? WHERE tamanho = ? AND marca = ?";
+        String sql = "UPDATE carro SET cor = ?, marca = ?, preco = ? WHERE cor = ? AND marca = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, tamanhoNovo, marcaNova, tamanhoAtual, marcaAtual);
+            generatedKey = DatabaseConnection.executeUpdate(sql, corNova, marcaNova, precoNovo, corAtual, marcaAtual);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de updateCalcado: " + e.getMessage());
+            System.out.println("Erro no SQL de updateCarro: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
         return generatedKey;
     }
 
-    public void deleteCalcado(int tamanho, String marca) {
-        String sql = "DELETE FROM calcado WHERE tamanho = ? AND marca = ?";
+    public void deleteCarro(String cor, String marca) {
+        String sql = "DELETE FROM carro WHERE cor = ? AND marca = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, tamanho, marca);
+            DatabaseConnection.executeUpdate(sql, cor, marca);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de deleteCalcado: " + e.getMessage());
+            System.out.println("Erro no SQL de deleteCarro: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
