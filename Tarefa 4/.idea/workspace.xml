@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="fix: corrige a abertura do programa, com os paths corretos de imagens">
+    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(db): faz a primeira insercao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/helpers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/helpers/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/sql/dump.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/CalcadoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/CalcadoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CalcadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CalcadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/sql/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,12 +31,12 @@
     &quot;assignee&quot;: &quot;augustopiatto&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/augustopiatto/adriana.git",
-    "accountId": "aab8e1af-5db0-43ba-8711-c132615caf68"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/augustopiatto/adriana.git&quot;,
+    &quot;accountId&quot;: &quot;aab8e1af-5db0-43ba-8711-c132615caf68&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -48,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
@@ -89,11 +88,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731625074536</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(db): faz a primeira insercao">
+      <option name="closed" value="true" />
+      <created>1731630464940</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731630464940</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: corrige a abertura do programa, com os paths corretos de imagens" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: corrige a abertura do programa, com os paths corretos de imagens" />
+    <MESSAGE value="feat(db): faz a primeira insercao" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(db): faz a primeira insercao" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/DAOs/CalcadoDAO.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

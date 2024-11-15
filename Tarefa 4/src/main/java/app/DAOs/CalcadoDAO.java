@@ -41,4 +41,18 @@ public class CalcadoDAO {
         }
         return calcadoList;
     }
+
+    public int updateCalcado(int tamanhoAtual, String marcaAtual, int tamanhoNovo, String marcaNova) {
+        int generatedKey = 0;
+        String sql = "UPDATE calcado SET tamanho = ?, marca = ? WHERE tamanho = ? AND marca = ?";
+
+        try {
+            generatedKey = DatabaseConnection.executeUpdate(sql, tamanhoNovo, marcaNova, tamanhoAtual, marcaAtual);
+        } catch (SQLException e) {
+            System.out.println("Erro no SQL de updateCalcado: " + e.getMessage());
+        } finally {
+            DatabaseConnection.closeResources();
+        }
+        return generatedKey;
+    }
 }

@@ -6,13 +6,17 @@ import app.models.CalcadoModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class CalcadoController {
+public class CalcadoController implements Initializable {
     int tamanhoBr;
     String marcaBr;
 
@@ -22,6 +26,11 @@ public class CalcadoController {
     private TextField tamanho;
     @FXML
     private ChoiceBox calcadoChoiceBox;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        read();
+    }
 
     private void convertParam() {
         if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
@@ -46,13 +55,14 @@ public class CalcadoController {
     }
 
     private void read() {
-        List<String> calcadoMarcaList = List.of();
+        calcadoChoiceBox.getItems().clear();
+        ArrayList<String> calcadoMarcaList = new ArrayList<>();
 
         CalcadoDAO calcadoDAO = new CalcadoDAO();
         ObservableList<CalcadoModel> calcadoList = calcadoDAO.readCalcado();
 
         for (CalcadoModel calcado : calcadoList) {
-            calcadoMarcaList.add(calcado.getMarca());
+            calcadoMarcaList.add(calcado.getMarca() + " - " + calcado.getTamanho());
         }
 
         calcadoChoiceBox.getItems().addAll(calcadoMarcaList);
@@ -62,7 +72,12 @@ public class CalcadoController {
     private void update(ActionEvent event) {
         convertParam();
         if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
-//
+            String calcadoAtual = (String) calcadoChoiceBox.getValue();
+            String marcaAtual = calcadoAtual.split(" - ")[0];
+            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
+            CalcadoDAO calcadoDAO = new CalcadoDAO();
+            calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
+            read();
         } else {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
         }

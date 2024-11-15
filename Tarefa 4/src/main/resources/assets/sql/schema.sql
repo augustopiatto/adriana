@@ -14,10 +14,9 @@ DROP TABLE IF EXISTS `porta`;
 DROP TABLE IF EXISTS `teclado`;
 
 CREATE TABLE `calcado` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
 	`tamanho` TINYINT NOT NULL,
 	`marca` CHAR(255) NOT NULL,
-	PRIMARY KEY(`id`)
+	PRIMARY KEY(`tamanho`, `marca`)
 );
 
 CREATE TABLE `carro` (
