@@ -6,7 +6,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class DatabaseConnection {
     static Dotenv dotenv = Dotenv.load();
 
-    private static final String DEFAULT_SCHEMA = "avaliador";
+    private static final String DEFAULT_SCHEMA = "adriana";
     private static final String USER = dotenv.get("DB_USER");
     private static final String PASSWORD = dotenv.get("DB_PASSWORD");
 
