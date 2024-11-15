@@ -55,4 +55,16 @@ public class CalcadoDAO {
         }
         return generatedKey;
     }
+
+    public void deleteCalcado(int tamanho, String marca) {
+        String sql = "DELETE FROM calcado WHERE tamanho = ? AND marca = ?";
+
+        try {
+            DatabaseConnection.executeUpdate(sql, tamanho, marca);
+        } catch (SQLException e) {
+            System.out.println("Erro no SQL de deleteCalcado: " + e.getMessage());
+        } finally {
+            DatabaseConnection.closeResources();
+        }
+    }
 }

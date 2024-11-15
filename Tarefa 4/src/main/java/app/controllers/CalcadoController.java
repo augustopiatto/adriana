@@ -85,11 +85,15 @@ public class CalcadoController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
-        convertParam();
-        if (tamanhoBr > 0 && !marcaBr.isEmpty()) {
-//
-        } else {
+        String calcadoAtual = (String) calcadoChoiceBox.getValue();
+        if (calcadoAtual.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+        } else {
+            String marcaAtual = calcadoAtual.split(" - ")[0];
+            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
+            CalcadoDAO calcadoDAO = new CalcadoDAO();
+            calcadoDAO.deleteCalcado(tamanhoAtual, marcaAtual);
+            read();
         }
     }
 
