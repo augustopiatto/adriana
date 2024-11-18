@@ -1,7 +1,7 @@
 package app.DAOs;
 
 import app.helpers.DatabaseConnection;
-import app.models.CarroModel;
+import app.models.FlorModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,61 +9,60 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FlorDAO {
-    ObservableList<CarroModel> carroList = FXCollections.observableArrayList();
+    ObservableList<FlorModel> florList = FXCollections.observableArrayList();
 
-    public int createCarro(String cor, String marca, float preco) {
-        String sql = "INSERT INTO carro (cor, marca, preco) VALUES(?, ?, ?)";
-        int carroId = 0;
+    public int createFlor(String cor, String estacao) {
+        String sql = "INSERT INTO flor (cor, estacao) VALUES(?, ?)";
+        int florId = 0;
 
         try {
-            carroId = DatabaseConnection.executeUpdate(sql, cor, marca, preco);
+            florId = DatabaseConnection.executeUpdate(sql, cor, estacao);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de createCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de createFlor: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
-        return carroId;
+        return florId;
     }
 
-    public ObservableList<CarroModel> readCarro() {
-        String sql = "SELECT * FROM carro ORDER BY marca";
+    public ObservableList<FlorModel> readFlor() {
+        String sql = "SELECT * FROM flor";
 
         try(ResultSet resultSet = DatabaseConnection.executeQuery(sql)) {
             while (resultSet.next()) {
                 String cor = resultSet.getString("cor");
-                String marca = resultSet.getString("marca");
-                float preco = resultSet.getFloat("preco");
+                String estacao = resultSet.getString("estacao");
 
-                CarroModel carro = new CarroModel(cor, marca, preco);
-                carroList.add(carro);
+                FlorModel flor = new FlorModel(cor, estacao);
+                florList.add(flor);
             }
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de readCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de readFlor: " + e.getMessage());
         }
-        return carroList;
+        return florList;
     }
 
-    public int updateCarro(String corAtual, String marcaAtual, String corNova, String marcaNova, float precoNovo) {
+    public int updateFlor(String corAtual, String estacaoAtual, String corNova, String estacaoNova) {
         int generatedKey = 0;
-        String sql = "UPDATE carro SET cor = ?, marca = ?, preco = ? WHERE cor = ? AND marca = ?";
+        String sql = "UPDATE flor SET cor = ?, estacao = ? WHERE cor = ? AND estacao = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, corNova, marcaNova, precoNovo, corAtual, marcaAtual);
+            generatedKey = DatabaseConnection.executeUpdate(sql, corNova, estacaoNova, corAtual, estacaoAtual);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de updateCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de updateFlor: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
         return generatedKey;
     }
 
-    public void deleteCarro(String cor, String marca) {
-        String sql = "DELETE FROM carro WHERE cor = ? AND marca = ?";
+    public void deleteFlor(String cor, String estacao) {
+        String sql = "DELETE FROM flor WHERE cor = ? AND estacao = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, cor, marca);
+            DatabaseConnection.executeUpdate(sql, cor, estacao);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de deleteCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de deleteFlor: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }

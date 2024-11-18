@@ -1,7 +1,7 @@
 package app.DAOs;
 
 import app.helpers.DatabaseConnection;
-import app.models.CarroModel;
+import app.models.LampadaModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,61 +9,61 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LampadaDAO {
-    ObservableList<CarroModel> carroList = FXCollections.observableArrayList();
+    ObservableList<LampadaModel> lampadaList = FXCollections.observableArrayList();
 
-    public int createCarro(String cor, String marca, float preco) {
-        String sql = "INSERT INTO carro (cor, marca, preco) VALUES(?, ?, ?)";
-        int carroId = 0;
+    public int createLampada(int voltagem, String tipo, String brilho) {
+        String sql = "INSERT INTO lampada (voltagem, tipo, brilho) VALUES(?, ?, ?)";
+        int lampadaId = 0;
 
         try {
-            carroId = DatabaseConnection.executeUpdate(sql, cor, marca, preco);
+            lampadaId = DatabaseConnection.executeUpdate(sql, voltagem, tipo, brilho);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de createCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de createLampada: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
-        return carroId;
+        return lampadaId;
     }
 
-    public ObservableList<CarroModel> readCarro() {
-        String sql = "SELECT * FROM carro ORDER BY marca";
+    public ObservableList<LampadaModel> readLampada() {
+        String sql = "SELECT * FROM lampada";
 
         try(ResultSet resultSet = DatabaseConnection.executeQuery(sql)) {
             while (resultSet.next()) {
-                String cor = resultSet.getString("cor");
-                String marca = resultSet.getString("marca");
-                float preco = resultSet.getFloat("preco");
+                int voltagem = resultSet.getInt("voltagem");
+                String tipo = resultSet.getString("tipo");
+                String brilho = resultSet.getString("brilho");
 
-                CarroModel carro = new CarroModel(cor, marca, preco);
-                carroList.add(carro);
+                LampadaModel lampada = new LampadaModel(voltagem, tipo, brilho);
+                lampadaList.add(lampada);
             }
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de readCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de readLampada: " + e.getMessage());
         }
-        return carroList;
+        return lampadaList;
     }
 
-    public int updateCarro(String corAtual, String marcaAtual, String corNova, String marcaNova, float precoNovo) {
+    public int updateLampada(int voltagemAtual, String tipoAtual, String brilhoAtual, int voltagemNova, String tipoNovo, String brilhoNovo) {
         int generatedKey = 0;
-        String sql = "UPDATE carro SET cor = ?, marca = ?, preco = ? WHERE cor = ? AND marca = ?";
+        String sql = "UPDATE lampada SET voltagem = ?, tipo = ?, brilho = ? WHERE voltagem = ? AND tipo = ? AND brilho = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, corNova, marcaNova, precoNovo, corAtual, marcaAtual);
+            generatedKey = DatabaseConnection.executeUpdate(sql, voltagemNova, tipoNovo, brilhoNovo, voltagemAtual, tipoAtual, brilhoAtual);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de updateCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de updateLampada: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
         return generatedKey;
     }
 
-    public void deleteCarro(String cor, String marca) {
-        String sql = "DELETE FROM carro WHERE cor = ? AND marca = ?";
+    public void deleteLampada(int voltagem, String tipo, String brilho) {
+        String sql = "DELETE FROM lampada WHERE voltagem = ? AND tipo = ? AND brilho = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, cor, marca);
+            DatabaseConnection.executeUpdate(sql, voltagem, tipo);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de deleteCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de deleteLampada: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }

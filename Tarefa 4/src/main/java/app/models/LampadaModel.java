@@ -1,4 +1,4 @@
-package entities;
+package app.models;
 
 public class LampadaModel {
     private int voltagem;
