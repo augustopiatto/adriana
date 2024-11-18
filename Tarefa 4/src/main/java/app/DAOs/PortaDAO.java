@@ -1,7 +1,7 @@
 package app.DAOs;
 
 import app.helpers.DatabaseConnection;
-import app.models.CarroModel;
+import app.models.PortaModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,61 +9,60 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PortaDAO {
-    ObservableList<CarroModel> carroList = FXCollections.observableArrayList();
+    ObservableList<PortaModel> portaList = FXCollections.observableArrayList();
 
-    public int createCarro(String cor, String marca, float preco) {
-        String sql = "INSERT INTO carro (cor, marca, preco) VALUES(?, ?, ?)";
-        int carroId = 0;
+    public int createPorta(float altura, String cor) {
+        String sql = "INSERT INTO porta (altura, cor) VALUES(?, ?, ?)";
+        int portaId = 0;
 
         try {
-            carroId = DatabaseConnection.executeUpdate(sql, cor, marca, preco);
+            portaId = DatabaseConnection.executeUpdate(sql, altura, cor);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de createCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de createPorta: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
-        return carroId;
+        return portaId;
     }
 
-    public ObservableList<CarroModel> readCarro() {
-        String sql = "SELECT * FROM carro ORDER BY marca";
+    public ObservableList<PortaModel> readPorta() {
+        String sql = "SELECT * FROM porta ORDER BY altura";
 
         try(ResultSet resultSet = DatabaseConnection.executeQuery(sql)) {
             while (resultSet.next()) {
+                float altura = resultSet.getFloat("altura");
                 String cor = resultSet.getString("cor");
-                String marca = resultSet.getString("marca");
-                float preco = resultSet.getFloat("preco");
 
-                CarroModel carro = new CarroModel(cor, marca, preco);
-                carroList.add(carro);
+                PortaModel porta = new PortaModel(altura, cor);
+                portaList.add(porta);
             }
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de readCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de readPorta: " + e.getMessage());
         }
-        return carroList;
+        return portaList;
     }
 
-    public int updateCarro(String corAtual, String marcaAtual, String corNova, String marcaNova, float precoNovo) {
+    public int updatePorta(float alturaAtual, String corAtual, float alturaNova, String corNova) {
         int generatedKey = 0;
-        String sql = "UPDATE carro SET cor = ?, marca = ?, preco = ? WHERE cor = ? AND marca = ?";
+        String sql = "UPDATE porta SET altura = ?, cor = ? WHERE altura = ? AND cor = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, corNova, marcaNova, precoNovo, corAtual, marcaAtual);
+            generatedKey = DatabaseConnection.executeUpdate(sql, alturaNova, corNova, alturaAtual, corAtual);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de updateCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de updatePorta: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }
         return generatedKey;
     }
 
-    public void deleteCarro(String cor, String marca) {
-        String sql = "DELETE FROM carro WHERE cor = ? AND marca = ?";
+    public void deletePorta(String cor, String marca) {
+        String sql = "DELETE FROM porta WHERE altura = ? AND cor = ?";
 
         try {
             DatabaseConnection.executeUpdate(sql, cor, marca);
         } catch (SQLException e) {
-            System.out.println("Erro no SQL de deleteCarro: " + e.getMessage());
+            System.out.println("Erro no SQL de deletePorta: " + e.getMessage());
         } finally {
             DatabaseConnection.closeResources();
         }

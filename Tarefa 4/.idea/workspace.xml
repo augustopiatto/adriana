@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(models): reorganiza os models">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/LivroDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/FlorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/FlorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/LampadaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/LampadaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/LampadaModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/LampadaModel.java" afterDir="false" />
+    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(DAOs): cria mais DAOs">
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/PortaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/PortaDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731643929027</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(DAOs): cria mais DAOs">
+      <option name="closed" value="true" />
+      <created>1731968275036</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731968275036</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -121,6 +124,7 @@
     <MESSAGE value="feat(carro): cria o" />
     <MESSAGE value="feat(carro): cria o update e delete" />
     <MESSAGE value="feat(models): reorganiza os models" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(models): reorganiza os models" />
+    <MESSAGE value="feat(DAOs): cria mais DAOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(DAOs): cria mais DAOs" />
   </component>
 </project>
