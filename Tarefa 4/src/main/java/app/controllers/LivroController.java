@@ -1,6 +1,6 @@
 package app.controllers;
 
-import entities.Livro;
+import app.models.LivroModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -33,7 +33,7 @@ public class LivroController {
     protected void onReadButtonClick() throws IOException {
         convertParam();
         if (!tituloBr.isEmpty() && !durezaBr.isEmpty() && !estiloBr.isEmpty()) {
-            Livro livro = new Livro(tituloBr,  durezaBr, estiloBr);
+            LivroModel livro = new LivroModel(tituloBr,  durezaBr, estiloBr);
             String resposta = livro.ler();
             resultado.setText(resposta);
         } else {
@@ -45,7 +45,7 @@ public class LivroController {
     protected void onModifyButtonClick() throws IOException {
         convertParam();
         if (!tituloBr.isEmpty() && !durezaBr.isEmpty() && !estiloBr.isEmpty()) {
-            Livro livro = new Livro(tituloBr,  durezaBr, estiloBr);
+            LivroModel livro = new LivroModel(tituloBr,  durezaBr, estiloBr);
             String resposta = livro.modificar(durezaBr);
             resultado.setText(resposta);
         } else {
@@ -57,7 +57,7 @@ public class LivroController {
     protected void onBurnButtonClick() throws IOException {
         convertParam();
         if (!tituloBr.isEmpty() && !durezaBr.isEmpty() && !estiloBr.isEmpty()) {
-            Livro livro = new Livro(tituloBr,  durezaBr, estiloBr);
+            LivroModel livro = new LivroModel(tituloBr,  durezaBr, estiloBr);
             String resposta = livro.queimar();
             resultado.setText(resposta);
         } else {

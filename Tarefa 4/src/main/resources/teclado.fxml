@@ -44,6 +44,9 @@
                         <Button mnemonicParsing="false" onAction="#onTypeButtonClick" text="Digitar" />
                         <Button mnemonicParsing="false" onAction="#onCompareButtonClick" text="Comparar" />
                         <TextField fx:id="resultado" />
+                         <Button mnemonicParsing="false" onAction="#create" text="Criar" />
+                         <Button mnemonicParsing="false" onAction="#update" text="Editar" />
+                         <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />
                         <Button mnemonicParsing="false" onAction="#onMenuButtonClick" text="Menu" />
                      </children>
                      <padding>

@@ -1,74 +1,114 @@
 package app.controllers;
 
-import entities.Lampada;
+import app.DAOs.CalcadoDAO;
+import app.helpers.Utils;
+import app.models.CalcadoModel;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class LampadaController {
-    int voltagemBr;
-    String tipoBr;
-    String brilhosidadeBr;
-
-    @FXML
-    private TextField voltagem;
-
-    @FXML
-    private TextField tipo;
+public class CalcadoController implements Initializable {
+    int tamanhoBr;
+    String marcaBr;
 
     @FXML
-    private TextField brilhosidade;
-
+    private TextField marca;
     @FXML
-    private TextField resultado;
+    private TextField tamanho;
+    @FXML
+    private ChoiceBox calcadoChoiceBox;
 
-    private void convertParam() {
-        if (voltagem.getText() != null && !voltagem.getText().trim().isEmpty()) {
-            this.voltagemBr = Integer.parseInt(voltagem.getText());
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        read();
+    }
+
+    private boolean convertParam() {
+        this.marcaBr = marca.getText();
+        if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
+            try {
+                this.tamanhoBr = Integer.parseInt(tamanho.getText());
+            } catch (NumberFormatException e) {
+                Utils.setAlert("ERROR", "Validação", "O campo de tamanho não é um número");
+                return false;
+            }
         }
-        this.tipoBr = tipo.getText();
-        this.brilhosidadeBr = brilhosidade.getText();
+        else if (tamanhoBr <= 0 || marcaBr.isEmpty()) {
+            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+            return false;
+        }
+        return true;
+    }
+
+    private void clearInputs() {
+        marca.clear();
+        tamanho.clear();
     }
 
     @FXML
-    protected void onUseButtonClick() throws IOException {
-        convertParam();
-        if (voltagemBr > 0 && !tipoBr.isEmpty() && !brilhosidadeBr.isEmpty()) {
-            Lampada lampada = new Lampada (220, tipoBr, brilhosidadeBr);
-            String resposta = lampada.usar(voltagemBr);
-            resultado.setText(resposta);
+    private void create(ActionEvent event) {
+        boolean converted = convertParam();
+        if (!converted) return;
+        CalcadoDAO calcadoDAO = new CalcadoDAO();
+        int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
+
+        if (calcadoId != 0) {
+            clearInputs();
+            read();
+        }
+    }
+
+    private void read() {
+        calcadoChoiceBox.getItems().clear();
+        ArrayList<String> calcadoMarcaList = new ArrayList<>();
+
+        CalcadoDAO calcadoDAO = new CalcadoDAO();
+        ObservableList<CalcadoModel> calcadoList = calcadoDAO.readCalcado();
+
+        for (CalcadoModel calcado : calcadoList) {
+            calcadoMarcaList.add(calcado.getMarca() + " - " + calcado.getTamanho());
+        }
+
+        calcadoChoiceBox.getItems().addAll(calcadoMarcaList);
+    }
+
+    @FXML
+    private void update(ActionEvent event) {
+        boolean converted = convertParam();
+        if (!converted) return;
+        String calcadoAtual = (String) calcadoChoiceBox.getValue();
+        String marcaAtual = calcadoAtual.split(" - ")[0];
+        int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
+        CalcadoDAO calcadoDAO = new CalcadoDAO();
+        calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
+        clearInputs();
+        read();
+    }
+
+    @FXML
+    private void delete(ActionEvent event) {
+        String calcadoAtual = (String) calcadoChoiceBox.getValue();
+        if (calcadoAtual.isEmpty()) {
+            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
         } else {
-            resultado.setText("Preencha os campos");
+            String marcaAtual = calcadoAtual.split(" - ")[0];
+            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
+            CalcadoDAO calcadoDAO = new CalcadoDAO();
+            calcadoDAO.deleteCalcado(tamanhoAtual, marcaAtual);
+            read();
         }
     }
 
     @FXML
-    protected void onBurnButtonClick() throws IOException {
-        convertParam();
-        if (voltagemBr > 0 && !tipoBr.isEmpty() && !brilhosidadeBr.isEmpty()) {
-            Lampada lampada = new Lampada (220, tipoBr, brilhosidadeBr);
-            String resposta = lampada.queimar();
-            resultado.setText(resposta);
-        } else {
-            resultado.setText("Preencha os campos");
-        }
-    }
-
-    @FXML
-    protected void onBreakButtonClick() throws IOException {
-        convertParam();
-        if (voltagemBr > 0 && !tipoBr.isEmpty() && !brilhosidadeBr.isEmpty()) {
-            Lampada lampada = new Lampada (220, tipoBr, brilhosidadeBr);
-            String resposta = lampada.quebrar();
-            resultado.setText(resposta);
-        } else {
-            resultado.setText("Preencha os campos");
-        }
-    }
-
-    @FXML
-    protected void onMenuButtonClick() throws IOException {
+    private void onMenuButtonClick(ActionEvent event) throws IOException {
         Main.setRoot("/menu");
     }
 }

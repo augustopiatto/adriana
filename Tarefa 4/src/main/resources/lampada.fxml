@@ -43,6 +43,9 @@
                         <Button mnemonicParsing="false" onAction="#onBurnButtonClick" text="Queimar" />
                         <Button mnemonicParsing="false" onAction="#onBreakButtonClick" text="Quebrar" />
                         <TextField fx:id="resultado" />
+                         <Button mnemonicParsing="false" onAction="#create" text="Criar" />
+                         <Button mnemonicParsing="false" onAction="#update" text="Editar" />
+                         <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />
                         <Button mnemonicParsing="false" onAction="#onMenuButtonClick" text="Menu" />
                      </children>
                      <padding>
