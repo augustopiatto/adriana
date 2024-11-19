@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.LivroController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LIVRO">
@@ -33,16 +34,14 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="500.0" prefWidth="350.0" spacing="16.0">
                      <children>
+                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o livro" />
+                         <ChoiceBox fx:id="livroChoiceBox" prefWidth="320.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o titulo do livro" />
                         <TextField fx:id="titulo" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a dureza da capa" />
                         <TextField fx:id="dureza" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o estilo do livro" />
                         <TextField fx:id="estilo" />
-                        <Button mnemonicParsing="false" onAction="#onReadButtonClick" text="Ler" />
-                        <Button mnemonicParsing="false" onAction="#onModifyButtonClick" text="Modificar" />
-                        <Button mnemonicParsing="false" onAction="#onBurnButtonClick" text="Queimar" />
-                        <TextField fx:id="resultado" />
                          <Button mnemonicParsing="false" onAction="#create" text="Criar" />
                          <Button mnemonicParsing="false" onAction="#update" text="Editar" />
                          <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />

@@ -56,11 +56,11 @@ public class PortaDAO {
         return generatedKey;
     }
 
-    public void deletePorta(String cor, String marca) {
+    public void deletePorta(float altura, String cor) {
         String sql = "DELETE FROM porta WHERE altura = ? AND cor = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, cor, marca);
+            DatabaseConnection.executeUpdate(sql, altura, cor);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de deletePorta: " + e.getMessage());
         } finally {

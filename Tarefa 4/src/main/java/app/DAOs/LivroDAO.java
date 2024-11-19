@@ -11,12 +11,12 @@ import java.sql.SQLException;
 public class LivroDAO {
     ObservableList<LivroModel> livroList = FXCollections.observableArrayList();
 
-    public int createLivro(String titulo, String capa, String estilo) {
-        String sql = "INSERT INTO livro (titulo, capa, estilo) VALUES(?, ?, ?)";
+    public int createLivro(String titulo, String dureza, String estilo) {
+        String sql = "INSERT INTO livro (titulo, dureza, estilo) VALUES(?, ?, ?)";
         int livroId = 0;
 
         try {
-            livroId = DatabaseConnection.executeUpdate(sql, titulo, capa, estilo);
+            livroId = DatabaseConnection.executeUpdate(sql, titulo, dureza, estilo);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de createLivro: " + e.getMessage());
         } finally {
@@ -31,10 +31,10 @@ public class LivroDAO {
         try(ResultSet resultSet = DatabaseConnection.executeQuery(sql)) {
             while (resultSet.next()) {
                 String titulo = resultSet.getString("titulo");
-                String capa = resultSet.getString("capa");
+                String dureza = resultSet.getString("dureza");
                 String estilo = resultSet.getString("estilo");
 
-                LivroModel livro = new LivroModel(titulo, capa, estilo);
+                LivroModel livro = new LivroModel(titulo, dureza, estilo);
                 livroList.add(livro);
             }
         } catch (SQLException e) {
@@ -43,12 +43,12 @@ public class LivroDAO {
         return livroList;
     }
 
-    public int updateLivro(String tituloAtual, String capaAtual, String estiloAtual, String tituloNovo, String capaNova, String estiloNovo) {
+    public int updateLivro(String tituloAtual, String durezaAtual, String estiloAtual, String tituloNovo, String durezaNova, String estiloNovo) {
         int generatedKey = 0;
-        String sql = "UPDATE livro SET titulo = ?, capa = ?, estilo = ? WHERE titulo = ? AND capa = ? AND estilo = ?";
+        String sql = "UPDATE livro SET titulo = ?, dureza = ?, estilo = ? WHERE titulo = ? AND dureza = ? AND estilo = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, tituloNovo, capaNova, estiloNovo, tituloAtual, capaAtual, estiloAtual);
+            generatedKey = DatabaseConnection.executeUpdate(sql, tituloNovo, durezaNova, estiloNovo, tituloAtual, durezaAtual, estiloAtual);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de updateLivro: " + e.getMessage());
         } finally {
@@ -57,11 +57,11 @@ public class LivroDAO {
         return generatedKey;
     }
 
-    public void deleteLivro(String titulo, String capa, String estilo) {
-        String sql = "DELETE FROM livro WHERE titulo = ? AND capa = ? AND estilo = ?";
+    public void deleteLivro(String titulo, String dureza, String estilo) {
+        String sql = "DELETE FROM livro WHERE titulo = ? AND dureza = ? AND estilo = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, titulo, capa, estilo);
+            DatabaseConnection.executeUpdate(sql, titulo, dureza, estilo);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de deleteLivro: " + e.getMessage());
         } finally {

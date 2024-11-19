@@ -1,8 +1,8 @@
 package app.controllers;
 
-import app.DAOs.CalcadoDAO;
+import app.DAOs.PortaDAO;
 import app.helpers.Utils;
-import app.models.CalcadoModel;
+import app.models.PortaModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,16 +15,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CalcadoController implements Initializable {
-    int tamanhoBr;
-    String marcaBr;
+public class PortaController implements Initializable {
+    float alturaBr;
+    String corBr;
 
     @FXML
-    private TextField marca;
+    private TextField altura;
     @FXML
-    private TextField tamanho;
+    private TextField cor;
     @FXML
-    private ChoiceBox calcadoChoiceBox;
+    private ChoiceBox portaChoiceBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,16 +32,16 @@ public class CalcadoController implements Initializable {
     }
 
     private boolean convertParam() {
-        this.marcaBr = marca.getText();
-        if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
+        this.corBr = cor.getText();
+        if (altura.getText() != null && !altura.getText().trim().isEmpty()) {
             try {
-                this.tamanhoBr = Integer.parseInt(tamanho.getText());
+                this.alturaBr = Integer.parseInt(altura.getText());
             } catch (NumberFormatException e) {
                 Utils.setAlert("ERROR", "Validação", "O campo de tamanho não é um número");
                 return false;
             }
         }
-        else if (tamanhoBr <= 0 || marcaBr.isEmpty()) {
+        else if (alturaBr <= 0 || corBr.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
             return false;
         }
@@ -49,60 +49,60 @@ public class CalcadoController implements Initializable {
     }
 
     private void clearInputs() {
-        marca.clear();
-        tamanho.clear();
+        cor.clear();
+        altura.clear();
     }
 
     @FXML
     private void create(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
+        PortaDAO portaDAO = new PortaDAO();
+        int portaId = portaDAO.createPorta(alturaBr, corBr);
 
-        if (calcadoId != 0) {
+        if (portaId != 0) {
             clearInputs();
             read();
         }
     }
 
     private void read() {
-        calcadoChoiceBox.getItems().clear();
-        ArrayList<String> calcadoMarcaList = new ArrayList<>();
+        portaChoiceBox.getItems().clear();
+        ArrayList<String> portaCorList = new ArrayList<>();
 
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        ObservableList<CalcadoModel> calcadoList = calcadoDAO.readCalcado();
+        PortaDAO portaDAO = new PortaDAO();
+        ObservableList<PortaModel> portaList = portaDAO.readPorta();
 
-        for (CalcadoModel calcado : calcadoList) {
-            calcadoMarcaList.add(calcado.getMarca() + " - " + calcado.getTamanho());
+        for (PortaModel porta : portaList) {
+            portaCorList.add(porta.getCor() + " - " + porta.getAltura());
         }
 
-        calcadoChoiceBox.getItems().addAll(calcadoMarcaList);
+        portaChoiceBox.getItems().addAll(portaCorList);
     }
 
     @FXML
     private void update(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        String calcadoAtual = (String) calcadoChoiceBox.getValue();
-        String marcaAtual = calcadoAtual.split(" - ")[0];
-        int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
+        String portaAtual = (String) portaChoiceBox.getValue();
+        String corAtual = portaAtual.split(" - ")[0];
+        float alturaAtual = Float.parseFloat(portaAtual.split(" - ")[1]);
+        PortaDAO portaDAO = new PortaDAO();
+        portaDAO.updatePorta(alturaAtual, corAtual, alturaBr, corBr);
         clearInputs();
         read();
     }
 
     @FXML
     private void delete(ActionEvent event) {
-        String calcadoAtual = (String) calcadoChoiceBox.getValue();
-        if (calcadoAtual.isEmpty()) {
+        String portaAtual = (String) portaChoiceBox.getValue();
+        if (portaAtual.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
         } else {
-            String marcaAtual = calcadoAtual.split(" - ")[0];
-            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-            CalcadoDAO calcadoDAO = new CalcadoDAO();
-            calcadoDAO.deleteCalcado(tamanhoAtual, marcaAtual);
+            String corAtual = portaAtual.split(" - ")[0];
+            float alturaAtual = Float.parseFloat(portaAtual.split(" - ")[1]);
+            PortaDAO portaDAO = new PortaDAO();
+            portaDAO.deletePorta(alturaAtual, corAtual);
             read();
         }
     }

@@ -67,7 +67,7 @@ CREATE TABLE `livro` (
 	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `titulo` CHAR(255) NOT NULL,
     `estilo` CHAR(255) NOT NULL,
-    `capa` CHAR(255) NOT NULL,
+    `dureza` CHAR(255) NOT NULL,
 	PRIMARY KEY(`id`)
 );
 

@@ -6,14 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(controller): ajusta alguns controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CelularController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CelularController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/FlorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/FlorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/InstrumentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/InstrumentoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/LampadaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/LampadaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/flor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/instrumento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/instrumento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/LivroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/LivroDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/LivroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/LivroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/PortaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/PortaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/LivroModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/LivroModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/sql/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/lampada.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lampada.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/livro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/livro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/porta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/porta.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731973741961</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat(controller): ajusta alguns controllers">
+      <option name="closed" value="true" />
+      <created>1731976237449</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731976237449</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
