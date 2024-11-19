@@ -51,9 +51,9 @@ public class CelularController implements Initializable {
         boolean converted = convertParam();
         if (!converted) return;
         CelularDAO celularDAO = new CelularDAO();
-        int calcadoId = celularDAO.createCelular(sistemaOperacionalBr, marcaBr);
+        int celularId = celularDAO.createCelular(sistemaOperacionalBr, marcaBr);
 
-        if (calcadoId != 0) {
+        if (celularId != 0) {
             clearInputs();
             read();
         }
@@ -61,25 +61,25 @@ public class CelularController implements Initializable {
 
     private void read() {
         celularChoiceBox.getItems().clear();
-        ArrayList<String> calcadoMarcaList = new ArrayList<>();
+        ArrayList<String> celularMarcaList = new ArrayList<>();
 
         CelularDAO celularDAO = new CelularDAO();
-        ObservableList<CelularModel> calcadoList = celularDAO.readCelular();
+        ObservableList<CelularModel> celularList = celularDAO.readCelular();
 
-        for (CelularModel calcado : calcadoList) {
-            calcadoMarcaList.add(calcado.getMarca() + " - " + calcado.getSistemaOperacional());
+        for (CelularModel celular : celularList) {
+            celularMarcaList.add(celular.getMarca() + " - " + celular.getSistemaOperacional());
         }
 
-        celularChoiceBox.getItems().addAll(calcadoMarcaList);
+        celularChoiceBox.getItems().addAll(celularMarcaList);
     }
 
     @FXML
     private void update(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        String calcadoAtual = (String) celularChoiceBox.getValue();
-        String marcaAtual = calcadoAtual.split(" - ")[0];
-        String sistemaOperacionalAtual = calcadoAtual.split(" - ")[1];
+        String celularAtual = (String) celularChoiceBox.getValue();
+        String marcaAtual = celularAtual.split(" - ")[0];
+        String sistemaOperacionalAtual = celularAtual.split(" - ")[1];
         CelularDAO celularDAO = new CelularDAO();
         celularDAO.updateCelular(sistemaOperacionalAtual, marcaAtual, sistemaOperacionalBr, marcaBr);
         clearInputs();
@@ -88,12 +88,12 @@ public class CelularController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
-        String calcadoAtual = (String) celularChoiceBox.getValue();
-        if (calcadoAtual.isEmpty()) {
+        String celularAtual = (String) celularChoiceBox.getValue();
+        if (celularAtual.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
         } else {
-            String marcaAtual = calcadoAtual.split(" - ")[0];
-            String sistemaOperacionalAtual = calcadoAtual.split(" - ")[1];
+            String marcaAtual = celularAtual.split(" - ")[0];
+            String sistemaOperacionalAtual = celularAtual.split(" - ")[1];
             CelularDAO celularDAO = new CelularDAO();
             celularDAO.deleteCelular(sistemaOperacionalAtual, marcaAtual);
             read();

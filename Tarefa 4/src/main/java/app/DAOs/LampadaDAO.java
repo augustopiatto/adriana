@@ -43,12 +43,12 @@ public class LampadaDAO {
         return lampadaList;
     }
 
-    public int updateLampada(int voltagemAtual, String tipoAtual, String brilhoAtual, int voltagemNova, String tipoNovo, String brilhoNovo) {
+    public int updateLampada(int voltagemAtual, String tipoAtual, int voltagemNova, String tipoNovo, String brilhoNovo) {
         int generatedKey = 0;
-        String sql = "UPDATE lampada SET voltagem = ?, tipo = ?, brilho = ? WHERE voltagem = ? AND tipo = ? AND brilho = ?";
+        String sql = "UPDATE lampada SET voltagem = ?, tipo = ?, brilho = ? WHERE voltagem = ? AND tipo = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, voltagemNova, tipoNovo, brilhoNovo, voltagemAtual, tipoAtual, brilhoAtual);
+            generatedKey = DatabaseConnection.executeUpdate(sql, voltagemNova, tipoNovo, brilhoNovo, voltagemAtual, tipoAtual);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de updateLampada: " + e.getMessage());
         } finally {
@@ -57,8 +57,8 @@ public class LampadaDAO {
         return generatedKey;
     }
 
-    public void deleteLampada(int voltagem, String tipo, String brilho) {
-        String sql = "DELETE FROM lampada WHERE voltagem = ? AND tipo = ? AND brilho = ?";
+    public void deleteLampada(int voltagem, String tipo) {
+        String sql = "DELETE FROM lampada WHERE voltagem = ? AND tipo = ?";
 
         try {
             DatabaseConnection.executeUpdate(sql, voltagem, tipo);

@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(DAOs): cria mais DAOs">
+    <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(controller): ajusta alguns controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/InstrumentoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CelularController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CelularController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/ComidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/ComidaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/FlorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/FlorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/InstrumentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/InstrumentoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/LampadaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/LampadaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/LivroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/LivroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/PortaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/PortaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/TecladoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/TecladoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/celular.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/celular.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/comida.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/comida.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/flor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/flor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/instrumento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/instrumento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lampada.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lampada.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731969140727</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat(controller): ajusta alguns controllers">
+      <option name="closed" value="true" />
+      <created>1731973741961</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731973741961</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -144,6 +149,7 @@
     <MESSAGE value="feat(carro): cria o update e delete" />
     <MESSAGE value="feat(models): reorganiza os models" />
     <MESSAGE value="feat(DAOs): cria mais DAOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(DAOs): cria mais DAOs" />
+    <MESSAGE value="feat(controller): ajusta alguns controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(controller): ajusta alguns controllers" />
   </component>
 </project>

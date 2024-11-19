@@ -1,8 +1,8 @@
 package app.controllers;
 
-import app.DAOs.CalcadoDAO;
+import app.DAOs.InstrumentoDAO;
 import app.helpers.Utils;
-import app.models.CalcadoModel;
+import app.models.InstrumentoModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,16 +15,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CalcadoController implements Initializable {
-    int tamanhoBr;
-    String marcaBr;
+public class InstrumentoController implements Initializable {
+    String nomeBr;
+    String tipoBr;
+    String tamanhoBr;
 
     @FXML
-    private TextField marca;
+    private TextField nome;
+    @FXML
+    private TextField tipo;
     @FXML
     private TextField tamanho;
     @FXML
-    private ChoiceBox calcadoChoiceBox;
+    private ChoiceBox instrumentoChoiceBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,16 +35,10 @@ public class CalcadoController implements Initializable {
     }
 
     private boolean convertParam() {
-        this.marcaBr = marca.getText();
-        if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
-            try {
-                this.tamanhoBr = Integer.parseInt(tamanho.getText());
-            } catch (NumberFormatException e) {
-                Utils.setAlert("ERROR", "Validação", "O campo de tamanho não é um número");
-                return false;
-            }
-        }
-        else if (tamanhoBr <= 0 || marcaBr.isEmpty()) {
+        this.nomeBr = nome.getText();
+        this.tipoBr = tipo.getText();
+        this.tamanhoBr = tamanho.getText();
+        if (tamanhoBr.isEmpty() || nomeBr.isEmpty() || tipoBr.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
             return false;
         }
@@ -49,7 +46,8 @@ public class CalcadoController implements Initializable {
     }
 
     private void clearInputs() {
-        marca.clear();
+        nome.clear();
+        tipo.clear();
         tamanho.clear();
     }
 
@@ -57,52 +55,48 @@ public class CalcadoController implements Initializable {
     private void create(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
+        InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
+        int instrumentoId = instrumentoDAO.createInstrumento(nomeBr, tipoBr, tamanhoBr);
 
-        if (calcadoId != 0) {
+        if (instrumentoId != 0) {
             clearInputs();
             read();
         }
     }
 
     private void read() {
-        calcadoChoiceBox.getItems().clear();
-        ArrayList<String> calcadoMarcaList = new ArrayList<>();
+        instrumentoChoiceBox.getItems().clear();
+        ArrayList<String> instrumentoNomeList = new ArrayList<>();
 
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        ObservableList<CalcadoModel> calcadoList = calcadoDAO.readCalcado();
+        InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
+        ObservableList<InstrumentoModel> instrumentoList = instrumentoDAO.readInstrumento();
 
-        for (CalcadoModel calcado : calcadoList) {
-            calcadoMarcaList.add(calcado.getMarca() + " - " + calcado.getTamanho());
+        for (InstrumentoModel instrumento : instrumentoList) {
+            instrumentoNomeList.add(instrumento.getNome());
         }
 
-        calcadoChoiceBox.getItems().addAll(calcadoMarcaList);
+        instrumentoChoiceBox.getItems().addAll(instrumentoNomeList);
     }
 
     @FXML
     private void update(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        String calcadoAtual = (String) calcadoChoiceBox.getValue();
-        String marcaAtual = calcadoAtual.split(" - ")[0];
-        int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
+        String nomeAtual = (String) instrumentoChoiceBox.getValue();
+        InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
+        instrumentoDAO.updateInstrumento(nomeAtual, nomeBr, tipoBr, tamanhoBr);
         clearInputs();
         read();
     }
 
     @FXML
     private void delete(ActionEvent event) {
-        String calcadoAtual = (String) calcadoChoiceBox.getValue();
-        if (calcadoAtual.isEmpty()) {
+        String nomeAtual = (String) instrumentoChoiceBox.getValue();
+        if (nomeAtual.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
         } else {
-            String marcaAtual = calcadoAtual.split(" - ")[0];
-            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-            CalcadoDAO calcadoDAO = new CalcadoDAO();
-            calcadoDAO.deleteCalcado(tamanhoAtual, marcaAtual);
+            InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
+            instrumentoDAO.deleteInstrumento(nomeAtual);
             read();
         }
     }

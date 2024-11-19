@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.FlorController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FLOR">
@@ -33,14 +34,12 @@
                <children>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="350.0" spacing="16.0">
                      <children>
+                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a flor" />
+                         <ChoiceBox fx:id="florChoiceBox" prefWidth="320.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a cor da flor" />
                         <TextField fx:id="cor" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a estaçao que a flor floresce" />
                         <TextField fx:id="estacao" />
-                        <Button mnemonicParsing="false" onAction="#onSmellButtonClick" text="Cheirar" />
-                        <Button mnemonicParsing="false" onAction="#onHarvestButtonClick" text="Colher" />
-                        <Button mnemonicParsing="false" onAction="#onEatButtonClick" text="Comer" />
-                        <TextField fx:id="resultado" />
                          <Button mnemonicParsing="false" onAction="#create" text="Criar" />
                          <Button mnemonicParsing="false" onAction="#update" text="Editar" />
                          <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />

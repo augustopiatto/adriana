@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.LampadaController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LAMPADA">
@@ -33,15 +34,14 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="500.0" prefWidth="350.0" spacing="16.0">
                      <children>
+                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a lampada" />
+                         <ChoiceBox fx:id="lampadaChoiceBox" prefWidth="320.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a voltagem da lampada" />
                         <TextField fx:id="voltagem" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o tipo da lampada" />
                         <TextField fx:id="tipo" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a brilhosidade da lampada" />
                         <TextField fx:id="brilhosidade" />
-                        <Button mnemonicParsing="false" onAction="#onUseButtonClick" text="Usar" />
-                        <Button mnemonicParsing="false" onAction="#onBurnButtonClick" text="Queimar" />
-                        <Button mnemonicParsing="false" onAction="#onBreakButtonClick" text="Quebrar" />
                         <TextField fx:id="resultado" />
                          <Button mnemonicParsing="false" onAction="#create" text="Criar" />
                          <Button mnemonicParsing="false" onAction="#update" text="Editar" />

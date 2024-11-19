@@ -43,12 +43,12 @@ public class InstrumentoDAO {
         return instrumentoList;
     }
 
-    public int updateInstrumento(String nomeAtual, String tipoAtual, String tamanhoAtual, String nomeNovo, String tipoNovo, String tamanhoNovo) {
+    public int updateInstrumento(String nomeAtual, String nomeNovo, String tipoNovo, String tamanhoNovo) {
         int generatedKey = 0;
-        String sql = "UPDATE instrumento SET nome = ?, tipo = ?, tamanho = ? WHERE nome = ? AND tipo = ? AND tamanho = ?";
+        String sql = "UPDATE instrumento SET nome = ?, tipo = ?, tamanho = ? WHERE nome = ?";
 
         try {
-            generatedKey = DatabaseConnection.executeUpdate(sql, nomeNovo, tipoNovo, tamanhoAtual, nomeAtual, tipoAtual, tamanhoNovo);
+            generatedKey = DatabaseConnection.executeUpdate(sql, nomeNovo, tipoNovo, tamanhoNovo, nomeAtual);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de updateInstrumento: " + e.getMessage());
         } finally {
@@ -57,11 +57,11 @@ public class InstrumentoDAO {
         return generatedKey;
     }
 
-    public void deleteInstrumento(String nome, String tipo) {
+    public void deleteInstrumento(String nome) {
         String sql = "DELETE FROM instrumento WHERE nome = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, nome, tipo);
+            DatabaseConnection.executeUpdate(sql, nome);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de deleteInstrumento: " + e.getMessage());
         } finally {
