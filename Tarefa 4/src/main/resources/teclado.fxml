@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" spacing="12.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.TecladoController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TECLADO">
@@ -33,17 +34,14 @@
                <children>
                   <VBox alignment="CENTER" maxHeight="500.0" maxWidth="350.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="350.0" spacing="16.0">
                      <children>
+                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o teclado" />
+                         <ChoiceBox fx:id="tecladoChoiceBox" prefWidth="320.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite quantas teclas o teclado tem" />
                         <TextField fx:id="teclas" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite se o teclado é RGB (true ou false)" />
                         <TextField fx:id="rgb" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o tipo do teclado" />
                         <TextField fx:id="tipo" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite um texto qualquer" />
-                        <TextField fx:id="texto" />
-                        <Button mnemonicParsing="false" onAction="#onTypeButtonClick" text="Digitar" />
-                        <Button mnemonicParsing="false" onAction="#onCompareButtonClick" text="Comparar" />
-                        <TextField fx:id="resultado" />
                          <Button mnemonicParsing="false" onAction="#create" text="Criar" />
                          <Button mnemonicParsing="false" onAction="#update" text="Editar" />
                          <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />

@@ -57,11 +57,11 @@ public class TecladoDAO {
         return generatedKey;
     }
 
-    public void deleteTeclado(String cor, String marca) {
-        String sql = "DELETE FROM teclado WHERE cor = ? AND marca = ?";
+    public void deleteTeclado(int teclas, boolean rgb, String tipo) {
+        String sql = "DELETE FROM teclado WHERE teclas = ? AND rgb = ? AND tipo = ?";
 
         try {
-            DatabaseConnection.executeUpdate(sql, cor, marca);
+            DatabaseConnection.executeUpdate(sql, teclas, rgb, tipo);
         } catch (SQLException e) {
             System.out.println("Erro no SQL de deleteTeclado: " + e.getMessage());
         } finally {

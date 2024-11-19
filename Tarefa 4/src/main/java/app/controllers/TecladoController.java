@@ -1,8 +1,8 @@
 package app.controllers;
 
-import app.DAOs.CalcadoDAO;
+import app.DAOs.TecladoDAO;
 import app.helpers.Utils;
-import app.models.CalcadoModel;
+import app.models.TecladoModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,18 +13,22 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CalcadoController implements Initializable {
-    int tamanhoBr;
-    String marcaBr;
+public class TecladoController implements Initializable {
+    int teclasBr;
+    boolean rgbBr;
+    String tipoBr;
 
     @FXML
-    private TextField marca;
+    private TextField teclas;
     @FXML
-    private TextField tamanho;
+    private TextField rgb;
     @FXML
-    private ChoiceBox calcadoChoiceBox;
+    private TextField tipo;
+    @FXML
+    private ChoiceBox tecladoChoiceBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,16 +36,23 @@ public class CalcadoController implements Initializable {
     }
 
     private boolean convertParam() {
-        this.marcaBr = marca.getText();
-        if (tamanho.getText() != null && !tamanho.getText().trim().isEmpty()) {
+        this.tipoBr = tipo.getText();
+        if (teclas.getText() != null && !teclas.getText().trim().isEmpty()) {
             try {
-                this.tamanhoBr = Integer.parseInt(tamanho.getText());
+                this.teclasBr = Integer.parseInt(teclas.getText());
             } catch (NumberFormatException e) {
                 Utils.setAlert("ERROR", "Validação", "O campo de tamanho não é um número");
                 return false;
             }
         }
-        else if (tamanhoBr <= 0 || marcaBr.isEmpty()) {
+        if (rgb.getText() != null && !rgb.getText().trim().isEmpty()) {
+            if (Objects.equals(rgb.getText(), "true")) rgbBr = true;
+            else rgbBr = false;
+        } else {
+            Utils.setAlert("ERROR", "Validação", "Preencha os campos");
+            return false;
+        }
+        if (teclasBr <= 0 || tipoBr.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
             return false;
         }
@@ -49,60 +60,63 @@ public class CalcadoController implements Initializable {
     }
 
     private void clearInputs() {
-        marca.clear();
-        tamanho.clear();
+        teclas.clear();
+        rgb.clear();
+        tipo.clear();
     }
 
     @FXML
     private void create(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        int calcadoId = calcadoDAO.createCalcado(tamanhoBr, marcaBr);
+        TecladoDAO tecladoDAO = new TecladoDAO();
+        int tecladoId = tecladoDAO.createTeclado(teclasBr, rgbBr, tipoBr);
 
-        if (calcadoId != 0) {
+        if (tecladoId != 0) {
             clearInputs();
             read();
         }
     }
 
     private void read() {
-        calcadoChoiceBox.getItems().clear();
-        ArrayList<String> calcadoMarcaList = new ArrayList<>();
+        tecladoChoiceBox.getItems().clear();
+        ArrayList<String> tecladoTipoList = new ArrayList<>();
 
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        ObservableList<CalcadoModel> calcadoList = calcadoDAO.readCalcado();
+        TecladoDAO tecladoDAO = new TecladoDAO();
+        ObservableList<TecladoModel> tecladoList = tecladoDAO.readTeclado();
 
-        for (CalcadoModel calcado : calcadoList) {
-            calcadoMarcaList.add(calcado.getMarca() + " - " + calcado.getTamanho());
+        for (TecladoModel teclado : tecladoList) {
+            tecladoTipoList.add(teclado.getTipo() + " - " + teclado.getTeclas() + " teclas - " + teclado.getRgb());
         }
 
-        calcadoChoiceBox.getItems().addAll(calcadoMarcaList);
+        tecladoChoiceBox.getItems().addAll(tecladoTipoList);
     }
 
     @FXML
     private void update(ActionEvent event) {
         boolean converted = convertParam();
         if (!converted) return;
-        String calcadoAtual = (String) calcadoChoiceBox.getValue();
-        String marcaAtual = calcadoAtual.split(" - ")[0];
-        int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-        CalcadoDAO calcadoDAO = new CalcadoDAO();
-        calcadoDAO.updateCalcado(tamanhoAtual, marcaAtual, tamanhoBr, marcaBr);
+        String tecladoAtual = (String) tecladoChoiceBox.getValue();
+        String tipoAtual = tecladoAtual.split(" - ")[0];
+        int teclasAtual = Integer.parseInt(tecladoAtual.split(" - ")[1]);
+        boolean rgbAtual = Boolean.parseBoolean(tecladoAtual.split(" - ")[2]);
+        TecladoDAO tecladoDAO = new TecladoDAO();
+        tecladoDAO.updateTeclado(teclasAtual, rgbAtual, tipoAtual, teclasBr, rgbBr, tipoBr);
         clearInputs();
         read();
     }
 
     @FXML
     private void delete(ActionEvent event) {
-        String calcadoAtual = (String) calcadoChoiceBox.getValue();
-        if (calcadoAtual.isEmpty()) {
+        String tecladoAtual = (String) tecladoChoiceBox.getValue();
+        if (tecladoAtual.isEmpty()) {
             Utils.setAlert("ERROR", "Validação", "Preencha os campos");
         } else {
-            String marcaAtual = calcadoAtual.split(" - ")[0];
-            int tamanhoAtual = Integer.parseInt(calcadoAtual.split(" - ")[1]);
-            CalcadoDAO calcadoDAO = new CalcadoDAO();
-            calcadoDAO.deleteCalcado(tamanhoAtual, marcaAtual);
+            String tipoAtual = tecladoAtual.split(" - ")[0];
+            int teclasAtual = Integer.parseInt(tecladoAtual.split(" - ")[1]);
+            boolean rgbAtual = Boolean.parseBoolean(tecladoAtual.split(" - ")[2]);
+            TecladoDAO tecladoDAO = new TecladoDAO();
+            tecladoDAO.deleteTeclado(teclasAtual, rgbAtual, tipoAtual);
             read();
         }
     }
