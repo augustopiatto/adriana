@@ -57,7 +57,7 @@ CREATE TABLE `instrumento` (
 
 CREATE TABLE `lampada` (
 	`id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-	`voltagem` TINYINT NOT NULL,
+	`voltagem` INT NOT NULL,
     `tipo` CHAR(255) NOT NULL,
     `brilho` CHAR(255) NOT NULL,
 	PRIMARY KEY(`id`)

@@ -12,7 +12,7 @@ public class CelularDAO {
     ObservableList<CelularModel> celularList = FXCollections.observableArrayList();
 
     public int createCelular(String sistemaOperacional, String marca) {
-        String sql = "INSERT INTO celular (sistemaOperacional, marca) VALUES(?, ?)";
+        String sql = "INSERT INTO celular (sistema_operacional, marca) VALUES(?, ?)";
         int celularId = 0;
 
         try {
@@ -30,7 +30,7 @@ public class CelularDAO {
 
         try(ResultSet resultSet = DatabaseConnection.executeQuery(sql)) {
             while (resultSet.next()) {
-                String cor = resultSet.getString("sistemaOperacional");
+                String cor = resultSet.getString("sistema_operacional");
                 String marca = resultSet.getString("marca");
 
                 CelularModel celular = new CelularModel(cor, marca);

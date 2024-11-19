@@ -36,7 +36,7 @@
                      <children>
                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a porta" />
                          <ChoiceBox fx:id="portaChoiceBox" prefWidth="320.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a altura da porta" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a altura da porta (em cm)" />
                         <TextField fx:id="altura" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a cor da porta" />
                         <TextField fx:id="cor" />

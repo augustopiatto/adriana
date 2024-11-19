@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d728ccb-48b6-42e5-8ec9-3c1e485359a1" name="Changes" comment="feat(controller): ajusta alguns controllers">
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/TecladoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/TecladoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/TecladoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/TecladoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teclado.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teclado.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/CelularDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/CelularDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAOs/PortaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/DAOs/PortaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/sql/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/comida.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/comida.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/instrumento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/instrumento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/porta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/porta.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731977592421</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat(controller): ajusta alguns controllers">
+      <option name="closed" value="true" />
+      <created>1731978408764</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731978408764</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

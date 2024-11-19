@@ -42,7 +42,6 @@
                         <TextField fx:id="sabor" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a textura da comida" />
                         <TextField fx:id="textura" />
-                        <TextField fx:id="resultado" />
                          <Button mnemonicParsing="false" onAction="#create" text="Criar" />
                          <Button mnemonicParsing="false" onAction="#update" text="Editar" />
                          <Button mnemonicParsing="false" onAction="#delete" text="Deletar" />

@@ -12,7 +12,7 @@ public class PortaDAO {
     ObservableList<PortaModel> portaList = FXCollections.observableArrayList();
 
     public int createPorta(float altura, String cor) {
-        String sql = "INSERT INTO porta (altura, cor) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO porta (altura, cor) VALUES(?, ?)";
         int portaId = 0;
 
         try {

@@ -86,7 +86,7 @@ public class TecladoController implements Initializable {
         ObservableList<TecladoModel> tecladoList = tecladoDAO.readTeclado();
 
         for (TecladoModel teclado : tecladoList) {
-            tecladoTipoList.add(teclado.getTipo() + " - " + teclado.getTeclas() + " teclas - " + teclado.getRgb());
+            tecladoTipoList.add(teclado.getTipo() + " - " + teclado.getTeclas() + " - " + teclado.getRgb());
         }
 
         tecladoChoiceBox.getItems().addAll(tecladoTipoList);
